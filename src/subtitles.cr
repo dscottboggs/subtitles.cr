@@ -1,9 +1,17 @@
-# TODO: Write documentation for `Subtitles.cr`
+require "./format"
+require "./config"
+
 module Subtitles
   VERSION = "0.1.0"
   extend self
 
-  def detect(content : IO) : Format.class?
+  @@logger : Logger?
+
+  def logger : Logger
+    @@logger ||= Config.logger
+  end
+
+  def detect(content : IO) : Format.class | Nil
     {% for format in Formats %}
     if detected = {{format.id}}.detect content
       return detected
@@ -27,7 +35,7 @@ module Subtitles
     resync(captions) { |start, end| {start + offset, end + offset} }
   end
 
-  def resync(captions : Array(Caption), offset : Number, frame_rate : Number, ratio = 1_f64 )
+  def resync(captions : Array(Caption), offset : Number, frame_rate : Number, ratio = 1_f64)
     offset *= frame_rate
     resync captions do |start, end|
       {Math.round(start * ratio + offset), Math.round(end * ratio + offset)}
@@ -44,5 +52,4 @@ module Subtitles
     end
     synced
   end
-
 end
