@@ -19,7 +19,7 @@ module Subtitles
   abstract class Format
     abstract def content : IO
 
-    abstract def parse
+    abstract def to_captions
 
     def initialize(@content : IO); end
 

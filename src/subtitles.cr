@@ -19,7 +19,7 @@ module Subtitles
     {% end %}
   end
 
-  def parse(content : IO) : Caption
+  def to_captions(content : IO) : Caption
     if detected = detect(content)
       detected.new(content).parse
     end

@@ -131,7 +131,7 @@ module Subtitles
       )
     end
 
-    def parse(eol = "\r\n")
+    def to_captions(eol = "\r\n")
       captions = [] of Caption | Style
       meta = nil
       style_columns = nil

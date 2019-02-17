@@ -31,7 +31,7 @@ module Subtitles
       @content = File.open filepath
     end
 
-    def parse(format : Format? = nil, eol = "\r\n") : Array(Caption)
+    def to_captions(eol = "\r\n") : Array(Caption)
       captions = [] of Caption
       while part = content.gets(eol * 2, chomp: true)
         if match = SRT_PART_REGEX.match part

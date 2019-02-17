@@ -42,4 +42,4 @@ module Subtitles
 end
 {% end %}
 
-Sample = Subtitles::JSON.new(fixture("json")).parse
+Sample = Subtitles::JSON.new(fixture("json")).to_captions
