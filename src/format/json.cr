@@ -4,7 +4,7 @@ module Subtitles
 
     getter content : IO
 
-    def parse
+    def parse(eol = nil)
       Array(Caption).from_json content
     end
 

@@ -34,7 +34,7 @@ module Subtitles
 
     def parse(format : Format? = nil, eol = "\r\n") : Array(Caption)
       captions = [] of Caption
-      while part = content.gets eol, chomp: true
+      while part = content.gets(eol * 2, chomp: true)
         if match = SRT_PART_REGEX.match part
           lines = match[6].split /\r?\n/
           captions << Caption.new(

@@ -2,7 +2,7 @@ module Subtitles
   class SSA < Format
     getter content : IO
 
-    SRT_TIME_FORMAT = "%H:%M:%S,%L"
+    SRT_TIME_FORMAT = "%H:%M:%S.%L"
 
     property eol = "\r\n"
 
@@ -53,69 +53,83 @@ module Subtitles
       end
     end
 
-    PART_REGEX   = /^\s*\[([^\]]+)\]\r?\n([\s\S]*)(\r?\n)*$/i
-    LINE_REGEX   = /^\s*([^:]+):\s*(.*)(\r?\n)?$/
-    INLINE_REGEX = /\s*,\s*/
+    module Regexes
+      Part           = /^\s*\[([^\]]+)\]\r?\n([\s\S]*)(\r?\n)*$/i
+      Line           = /^\s*([^:]+):\s*(.*)(\r?\n)?$/
+      Inline         = /\s*,\s*/
+      ScriptInfo     = /^\s*\[Script Info\]\r?\n/
+      Events         = /\s*\[Events\]\r?\n/
+      PositionMarker = /\{\\pos\(\d+,\d+\)\}/
+    end
+
     property columns = [] of String
 
     def parse(eol = "\r\n")
       captions = [] of Caption | Style
       meta = nil
-      columns = nil
+      style_columns = nil
+      event_columns = nil
       while part = content.gets eol + eol, chomp: true
-        if part_match = PART_REGEX.match part
-          tag = part_match[1]
-          part_match[2].split(/\r?\n/).each do |line|
-            next if /^\s*;/.match line
-            if line_match = LINE_REGEX.match line
-              case tag
-              when "Script Info"
-                meta ||= Meta.new
-                meta.data[line_match[1]] = line_match[2]
-              when "V4 Styles", "V4+ Styles"
-                name = line_match[1].strip
-                value = line_match[2].strip
-                case name
-                when "Format"
-                  columns = value.split INLINE_REGEX
-                  next
-                when "Style"
-                  if cols = columns
-                    style = Style.new
-                    values = value.split INLINE_REGEX
-                    values.each_with_index do |val, idx|
-                      style.data[cols[idx]] = value if idx < cols.size
-                    end
-                    captions << style
-                  else
-                    raise StyleBeforeFormat.new content.tell
+        lines = part.split(eol).reject { |line| /^\s*;/.match line }.map &.strip
+        lines
+        tag = lines.shift.delete { |char| ['[', ' ', ']', '\t'].includes? char }
+        tag
+        lines.each do |line|
+          next if /^\s*;/.match line
+          if line_match = Regexes::Line.match line
+            case tag
+            when "Script Info"
+              meta ||= Meta.new
+              meta.data[line_match[1]] = line_match[2]
+            when "V4Styles", "V4+Styles"
+              name = line_match[1].strip
+              value = line_match[2].strip
+              # puts "parsing style tag #{name}: #{value}"
+              case name
+              when "Format"
+                style_columns = value.split Regexes::Inline
+                next
+              when "Style"
+                if cols = style_columns
+                  style = Style.new
+                  values = value.split Regexes::Inline
+                  values.each_with_index do |val, idx|
+                    style.data[cols[idx]] = value if idx < cols.size
                   end
-                end
-              when "Events"
-                name, value = line_match[1].strip, line_match[2].strip
-                case name
-                when "Format"
-                  columns = value.split INLINE_REGEX
-                  next
-                when "Dialogue"
-                  if the_columns = columns
-                    values = value.split INLINE_REGEX, the_columns.size - 1
-                    data = {} of String => String
-                    the_columns.each_with_index do |column, idx|
-                      data[column] = values[idx]
-                    end
-                    captions << Caption.new(
-                      start: (parse_time data["Start"]),
-                        end: (parse_time data["End"]),
-                          content: data["Text"],
-                          text: data["Text"].gsub("\\N", eol).gsub(/\{[^\}]+\}/, "")
-                    )
-                    next
-                  else
-                    raise DialogueBeforeFormat.new content.tell
-                  end
+                  captions << style
+                else
+                  raise StyleBeforeFormat.new content.tell
                 end
               end
+            when "Events"
+              name, value = line_match[1].strip, line_match[2].strip
+              # puts "parsing event tag #{name}: #{value}"
+              case name
+              when "Format"
+                event_columns = value.split Regexes::Inline
+                next
+              when "Dialogue"
+                if the_columns = event_columns
+                  values = value
+                    .gsub(Regexes::PositionMarker, "")
+                    .split Regexes::Inline, the_columns.size
+                  data = {} of String => String
+                  the_columns.each_with_index do |column, idx|
+                    data[column] = values[idx]? || ""
+                  end
+                  captions << Caption.new(
+                    start: (parse_time data["Start"]),
+                    end: (parse_time data["End"]),
+                    content: data["Text"],
+                    text: data["Text"].gsub("\\N", eol).gsub(/\{[^\}]+\}/, "")
+                  )
+                  next
+                else
+                  raise DialogueBeforeFormat.new content.tell
+                end
+              end
+            else
+              Subtitles.logger.debug "Got unrecognized tag #{tag}"
             end
           end
         end
@@ -123,11 +137,8 @@ module Subtitles
       captions
     end
 
-    SCRIPT_INFO_REGEX = /^\s*\[Script Info\]\r?\n/
-    EVENTS_REGEX      = /\s*\[Events\]\r?\n/
-
     def self.detect(content : String)
-      if SCRIPT_INFO_REGEX.match(content) && EVENTS_REGEX.match(content)
+      if Regexes::ScriptInfo.match(content) && Regexes::Events.match(content)
         if content.includes? "[V4+ Styles]"
           raise "ASS not yet implemented"
         else
@@ -135,18 +146,18 @@ module Subtitles
         end
       end
     end
+
     private def parse_time(string : String) : Time::Span
       time = Time.parse string, SRT_TIME_FORMAT, Time::Location::UTC
       Time::Span.new days: 0, hours: time.hour, minutes: time.minute, seconds: time.second, nanoseconds: time.nanosecond
     end
-
-
 
     class StyleBeforeFormat < Exception
       def initialize(position)
         super "The [Format] tag must come before [Style]. Found [Style] first at #{position.inspect}"
       end
     end
+
     class DialogueBeforeFormat < Exception
       def initialize(position)
         super "The [Format] tag must come before any [Dialogue]. Found [Dialogue] first at #{position.inspect}"
