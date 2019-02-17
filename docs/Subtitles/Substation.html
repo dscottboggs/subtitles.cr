@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.27.2">
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="../js/doc.js"></script>
+<script type="text/javascript">
+  CrystalDoc.base_path = "../";
+</script>
+
+  <meta id="repository-name" content="github.com/dscottboggs/subtitles.cr">
+  <title>Subtitles::Substation - github.com/dscottboggs/subtitles.cr</title>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="../index.html">README</a>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/MillisecondsSpanConverter" data-name="millisecondsspanconverter">
+      <a href="../MillisecondsSpanConverter.html">MillisecondsSpanConverter</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Sanitizer" data-name="sanitizer">
+      <a href="../Sanitizer.html">Sanitizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/SanitizeString" data-name="sanitizestring">
+      <a href="../SanitizeString.html">SanitizeString</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/dscottboggs/subtitles.cr/SanitizeStringHash" data-name="sanitizestringhash">
+      <a href="../SanitizeStringHash.html">SanitizeStringHash</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/SanitizeStringHash/StringHash" data-name="sanitizestringhash::stringhash">
+      <a href="../SanitizeStringHash/StringHash.html">StringHash</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/dscottboggs/subtitles.cr/Subtitles" data-name="subtitles">
+      <a href="../Subtitles.html">Subtitles</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/ASS" data-name="subtitles::ass">
+      <a href="../Subtitles/ASS.html">ASS</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Caption" data-name="subtitles::caption">
+      <a href="../Subtitles/Caption.html">Caption</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Config" data-name="subtitles::config">
+      <a href="../Subtitles/Config.html">Config</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Config/Arguments" data-name="subtitles::config::arguments">
+      <a href="../Subtitles/Config/Arguments.html">Arguments</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Config/Defaults" data-name="subtitles::config::defaults">
+      <a href="../Subtitles/Config/Defaults.html">Defaults</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Format" data-name="subtitles::format">
+      <a href="../Subtitles/Format.html">Format</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Formats" data-name="subtitles::formats">
+      <a href="../Subtitles/Formats.html">Formats</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/JSON" data-name="subtitles::json">
+      <a href="../Subtitles/JSON.html">JSON</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Meta" data-name="subtitles::meta">
+      <a href="../Subtitles/Meta.html">Meta</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/SRT" data-name="subtitles::srt">
+      <a href="../Subtitles/SRT.html">SRT</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/SSA" data-name="subtitles::ssa">
+      <a href="../Subtitles/SSA.html">SSA</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Style" data-name="subtitles::style">
+      <a href="../Subtitles/Style.html">Style</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Substation" data-name="subtitles::substation">
+      <a href="../Subtitles/Substation.html">Substation</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Substation/DialogueBeforeFormat" data-name="subtitles::substation::dialoguebeforeformat">
+      <a href="../Subtitles/Substation/DialogueBeforeFormat.html">DialogueBeforeFormat</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Substation/Regexes" data-name="subtitles::substation::regexes">
+      <a href="../Subtitles/Substation/Regexes.html">Regexes</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Substation/StyleBeforeFormat" data-name="subtitles::substation::stylebeforeformat">
+      <a href="../Subtitles/Substation/StyleBeforeFormat.html">StyleBeforeFormat</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">abstract class</span> Subtitles::Substation
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Subtitles/Substation.html">Subtitles::Substation</a></li><li class="superclass"><a href="../Subtitles/Format.html">Subtitles::Format</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Direct Known Subclasses</h2>
+  <ul class="other-types-list">
+  
+    <li class="other-type"><a href="../Subtitles/SSA.html">Subtitles::SSA</a></li>
+  
+  </ul>
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/substation.cr#L6" target="_blank">
+        format/substation.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+  
+    <h2>Constant Summary</h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="SRT_TIME_FORMAT">
+        <strong>SRT_TIME_FORMAT</strong> = <code><span class="s">&quot;%H:%M:%S.%L&quot;</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+  <h2>Constructors</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28content%3AIO%29-class-method" class="signature"><strong>.new</strong>(content : IO)</a>
+        
+          <div class="summary"><p>initialize with the content</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28contentstring%3AString%29-class-method" class="signature"><strong>.new</strong>(content string : String)</a>
+        
+          <div class="summary"><p>initialize with the content</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28captions%3AArray%28Caption%7CStyle%29%2Ceol%3D%26quot%3B%5Cr%5Cn%26quot%3B%29-class-method" class="signature"><strong>.new</strong>(captions : Array(Caption | Style), eol = <span class="s">&quot;\r\n&quot;</span>)</a>
+        
+          <div class="summary"><p>Build SSA-compatible subtitles from the given <code><a href="../Subtitles/Caption.html">Caption</a></code>s.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28%2A%2Cfilepath%3AString%29-class-method" class="signature"><strong>.new</strong>(*, filepath : String)</a>
+        
+          <div class="summary"><p>Read in an SSA compatible subtitle from the given filepath.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>Class Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#default_style-class-method" class="signature"><strong>.default_style</strong></a>
+        
+          <div class="summary"><p>The default style for subtitles coming from formats without formatting options.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#detect%28content%3AString%29-class-method" class="signature"><strong>.detect</strong>(content : String)</a>
+        
+          <div class="summary"><p>Check that the given content is a Substation filetype Returns <code><a href="../Subtitles/ASS.html">Subtitles::ASS</a></code> if the file is a .ass file, <code><a href="../Subtitles/SSA.html">Subtitles::SSA</a></code> if it's a .ssa file, an <code>nil</code> if it's neither.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#first_dialogue_column-class-method" class="signature"><strong>.first_dialogue_column</strong></a>
+        
+          <div class="summary"><p>The content of the first column of a dialogue row.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#first_format_column-class-method" class="signature"><strong>.first_format_column</strong></a>
+        
+          <div class="summary"><p>The content of the first column of a format row.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#style_format_columns-class-method" class="signature"><strong>.style_format_columns</strong></a>
+        
+          <div class="summary"><p>The column headers for the default style</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#styles_section_header-class-method" class="signature"><strong>.styles_section_header</strong></a>
+        
+          <div class="summary"><p>The header for the Styles section.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#columns%3AArray%28String%29-instance-method" class="signature"><strong>#columns</strong> : Array(String)</a>
+        
+          <div class="summary"><p>The columns the dialogue uses</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#columns%3D%28columns%29-instance-method" class="signature"><strong>#columns=</strong>(columns)</a>
+        
+          <div class="summary"><p>The columns the dialogue uses</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#content%3AIO-instance-method" class="signature"><strong>#content</strong> : IO</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#eol%3AString-instance-method" class="signature"><strong>#eol</strong> : String</a>
+        
+          <div class="summary"><p>The end-of-line character: '\n' on Unix-like systems, '\r\n' on windows.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#eol%3D%28eol%29-instance-method" class="signature"><strong>#eol=</strong>(eol)</a>
+        
+          <div class="summary"><p>The end-of-line character: '\n' on Unix-like systems, '\r\n' on windows.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_captions%28eol%3D%26quot%3B%5Cr%5Cn%26quot%3B%29-instance-method" class="signature"><strong>#to_captions</strong>(eol = <span class="s">&quot;\r\n&quot;</span>)</a>
+        
+          <div class="summary"><p>Convert this Substation subtitles file to an intermediary format for conversion to another format.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+  <h3>Instance methods inherited from class <code><a href="../Subtitles/Format.html">Subtitles::Format</a></code></h3>
+  
+  
+    <a href="../Subtitles/Format.html#content%3AIO-instance-method" class="tooltip">
+      <span>content : IO</span>
+    content</a>, 
+    
+  
+    <a href="../Subtitles/Format.html#finalize-instance-method" class="tooltip">
+      <span>finalize</span>
+    finalize</a>, 
+    
+  
+    <a href="../Subtitles/Format.html#to_captions-instance-method" class="tooltip">
+      <span>to_captions</span>
+    to_captions</a>
+    
+  
+
+
+    
+
+  <h3>Constructor methods inherited from class <code><a href="../Subtitles/Format.html">Subtitles::Format</a></code></h3>
+  
+  
+    <a href="../Subtitles/Format.html#new%28content%3AIO%29-class-method" class="tooltip">
+      <span>new(content : IO)<br/>new(content string : String)<br/>new(*, filepath : String)</span>
+    new</a>
+    
+  
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>Constructor Detail</h2>
+  
+    <div class="entry-detail" id="new(content:IO)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(content : IO)
+
+        <a class="method-permalink" href="#new%28content%3AIO%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>initialize with the content</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/substation.cr#L36" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(contentstring:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(content string : String)
+
+        <a class="method-permalink" href="#new%28contentstring%3AString%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>initialize with the content</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/substation.cr#L39" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(captions:Array(Caption|Style),eol=&amp;quot;\r\n&amp;quot;)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(captions : Array(<a href="../Subtitles/Caption.html">Caption</a> | <a href="../Subtitles/Style.html">Style</a>), eol = <span class="s">&quot;\r\n&quot;</span>)
+
+        <a class="method-permalink" href="#new%28captions%3AArray%28Caption%7CStyle%29%2Ceol%3D%26quot%3B%5Cr%5Cn%26quot%3B%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Build SSA-compatible subtitles from the given <code><a href="../Subtitles/Caption.html">Caption</a></code>s.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/substation.cr#L49" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(*,filepath:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(*, filepath : String)
+
+        <a class="method-permalink" href="#new%28%2A%2Cfilepath%3AString%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Read in an SSA compatible subtitle from the given filepath.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/substation.cr#L44" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>Class Method Detail</h2>
+  
+    <div class="entry-detail" id="default_style-class-method">
+      <div class="signature">
+        
+        def self.<strong>default_style</strong>
+
+        <a class="method-permalink" href="#default_style-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The default style for subtitles coming from formats without formatting
+options.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/substation.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="detect(content:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>detect</strong>(content : String)
+
+        <a class="method-permalink" href="#detect%28content%3AString%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Check that the given content is a Substation filetype
+Returns <code><a href="../Subtitles/ASS.html">Subtitles::ASS</a></code> if the file is a .ass file, <code><a href="../Subtitles/SSA.html">Subtitles::SSA</a></code> if
+it's a .ssa file, an <code>nil</code> if it's neither.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/substation.cr#L207" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="first_dialogue_column-class-method">
+      <div class="signature">
+        
+        def self.<strong>first_dialogue_column</strong>
+
+        <a class="method-permalink" href="#first_dialogue_column-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The content of the first column of a dialogue row.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/substation.cr#L24" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="first_format_column-class-method">
+      <div class="signature">
+        
+        def self.<strong>first_format_column</strong>
+
+        <a class="method-permalink" href="#first_format_column-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The content of the first column of a format row.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/substation.cr#L26" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="style_format_columns-class-method">
+      <div class="signature">
+        
+        def self.<strong>style_format_columns</strong>
+
+        <a class="method-permalink" href="#style_format_columns-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The column headers for the default style</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/substation.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="styles_section_header-class-method">
+      <div class="signature">
+        
+        def self.<strong>styles_section_header</strong>
+
+        <a class="method-permalink" href="#styles_section_header-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The header for the Styles section. Either [V4 Styles] or [V4+ Styles]</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/substation.cr#L22" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="columns:Array(String)-instance-method">
+      <div class="signature">
+        
+        def <strong>columns</strong> : Array(String)
+
+        <a class="method-permalink" href="#columns%3AArray%28String%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The columns the dialogue uses</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/substation.cr#L96" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="columns=(columns)-instance-method">
+      <div class="signature">
+        
+        def <strong>columns=</strong>(columns)
+
+        <a class="method-permalink" href="#columns%3D%28columns%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The columns the dialogue uses</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/substation.cr#L100" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="content:IO-instance-method">
+      <div class="signature">
+        
+        def <strong>content</strong> : IO
+
+        <a class="method-permalink" href="#content%3AIO-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/substation.cr#L9" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="eol:String-instance-method">
+      <div class="signature">
+        
+        def <strong>eol</strong> : String
+
+        <a class="method-permalink" href="#eol%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The end-of-line character: '\n' on Unix-like systems, '\r\n' on windows.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/substation.cr#L14" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="eol=(eol)-instance-method">
+      <div class="signature">
+        
+        def <strong>eol=</strong>(eol)
+
+        <a class="method-permalink" href="#eol%3D%28eol%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The end-of-line character: '\n' on Unix-like systems, '\r\n' on windows.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/substation.cr#L18" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_captions(eol=&amp;quot;\r\n&amp;quot;)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_captions</strong>(eol = <span class="s">&quot;\r\n&quot;</span>)
+
+        <a class="method-permalink" href="#to_captions%28eol%3D%26quot%3B%5Cr%5Cn%26quot%3B%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Convert this Substation subtitles file to an intermediary format for
+conversion to another format. This process is lossy. At least all comments
+will be lost, probably some other information too.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/substation.cr#L160" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

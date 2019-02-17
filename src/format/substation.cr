@@ -8,13 +8,27 @@ module Subtitles
 
     SRT_TIME_FORMAT = "%H:%M:%S.%L"
 
+    # The end-of-line character: '\n' on Unix-like systems, '\r\n' on windows.
     property eol = "\r\n"
 
+    # :nodoc:
     macro abstract_class_method(method_name)
-    def self.{{method_name.id}}
-      {% raise "attempted to call abstract class method {{@type.class.id}}.{{method_name.id}}" %}
+      def self.{{method_name.id}}
+        \{% raise "attempted to call abstract class method {{@type.class.id}}.{{method_name.id}}" %}
+      end
     end
-  end
+
+    # The header for the Styles section. Either [V4 Styles] or [V4+ Styles]
+    abstract_class_method styles_section_header
+    # The content of the first column of a dialogue row.
+    abstract_class_method first_dialogue_column
+    # The content of the first column of a format row.
+    abstract_class_method first_format_column
+    # The default style for subtitles coming from formats without formatting
+    # options.
+    abstract_class_method default_style
+    # The column headers for the default style
+    abstract_class_method style_format_columns
 
     # These initalize methods have to be pulled in manually from the parent class
 
@@ -55,7 +69,9 @@ module Subtitles
       new content
     end
 
-    def self.style_in?(captions : Array(Caption | Style)) : Style?
+    # Find the first Style in a list of `Style`s or `Caption`s, and return it.
+    # Returns nil when there are no Style elements of the given array.
+    private def self.style_in?(captions : Array(Caption | Style)) : Style?
       captions.each do |caption|
         if found = caption.is_a? Style
           captions.delete found
@@ -64,6 +80,7 @@ module Subtitles
       end
     end
 
+    # Regex values needed to parse Substation subtitles
     module Regexes
       Part           = /^\s*\[([^\]]+)\]\r?\n([\s\S]*)(\r?\n)*$/i
       Line           = /^\s*([^:]+):\s*(.*)(\r?\n)?$/
@@ -73,16 +90,20 @@ module Subtitles
       PositionMarker = /\{\\pos\(\d+,\d+\)\}/
     end
 
+    # The columns the dialogue uses
     property columns = [] of String
 
+    # Apply the parsed regex match to the meta list
     private def parse(meta : Meta, match : Regex::MatchData) : Void
       meta.data[match[1]] = match[2]
     end
 
+    # Separate the fields of the given format line and return it
     private def parse(*, format : String)
       format.split Regexes::Inline
     end
 
+    # Parse a style line and return the Style element
     private def parse_style(string : String, columns : Array(String)) : Style
       style = Style.new
       values = string.split Regexes::Inline
@@ -92,6 +113,7 @@ module Subtitles
       style
     end
 
+    # Parse the [V4(+) Styles] section
     private def parse(*,
                       styles captions : Array(Caption | Style),
                       match : Regex::MatchData,
@@ -112,6 +134,7 @@ module Subtitles
       nil
     end
 
+    # Parse a line in the dialogue section
     private def parse(*, # require named arguments
                       dialogue captions : Array(Caption | Style),
                       text : String,
@@ -131,6 +154,9 @@ module Subtitles
       )
     end
 
+    # Convert this Substation subtitles file to an intermediary format for
+    # conversion to another format. This process is lossy. At least all comments
+    # will be lost, probably some other information too.
     def to_captions(eol = "\r\n")
       captions = [] of Caption | Style
       meta = nil
@@ -175,6 +201,9 @@ module Subtitles
       captions
     end
 
+    # Check that the given content is a Substation filetype
+    # Returns `Subtitles::ASS` if the file is a .ass file, `Subtitles::SSA` if
+    # it's a .ssa file, an `nil` if it's neither.
     def self.detect(content : String)
       if Regexes::ScriptInfo.match(content) && Regexes::Events.match(content)
         if content.includes? "[V4+ Styles]"
@@ -190,12 +219,18 @@ module Subtitles
       Time::Span.new days: 0, hours: time.hour, minutes: time.minute, seconds: time.second, nanoseconds: time.nanosecond
     end
 
+    # An exception which is raised when the [Format] tag comes physically after
+    # the [Style] tag in the file or buffer. When this occurs we have no
+    # column in which to place the fields of the recieved row.
     class StyleBeforeFormat < Exception
       def initialize(position)
         super "The [Format] tag must come before [Style]. Found [Style] first at #{position.inspect}"
       end
     end
 
+    # An exception which is raised when the [Format] tag comes physically after
+    # the [Dialogue] tag in the file or buffer. When this occurs we have no
+    # column in which to place the fields of the recieved row.
     class DialogueBeforeFormat < Exception
       def initialize(position)
         super "The [Format] tag must come before any [Dialogue]. Found [Dialogue] first at #{position.inspect}"

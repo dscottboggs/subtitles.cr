@@ -5,14 +5,32 @@ module Subtitles
     module Arguments
       LogFileOptions  = {"--log-file", "--logfile"}
       LogLevelOptions = {"--log-level", "--loglevel"}
+      HelpOptions = { "-h", "--help", "help" }
     end
+
+    HELP_TEXT = <<-HELP
+    subtitles.cr -- convert between subtitles formats
+
+    Usage: subtitles /path/to/original.subtitles /path/to/output.format
+
+    ...where the .format value indicates the filetype you wish to output. The
+    input filetype will be automatically detected from the file contents.
+
+    Available formats:
+      - .srt          -- SubRip subtitles
+      - .ass and .ssa -- Substation Alpha subtitles
+      - .json         -- A JSON representation of the internal intermediary
+                         format.
+
+    HELP
 
     module Defaults
       def self.log_file
         if lf = ENV["subtitles_log_file"]?
           return File.open lf
         elsif Config.from_args? && (idx = ARGV.index { |arg| Arguments::LogFileOptions.includes? arg })
-          return File.open ARGV[idx + 1]
+          ARGV.delete_at idx
+          return File.open ARGV.delete_at idx
         end
         STDOUT
       end
@@ -24,7 +42,8 @@ module Subtitles
       @@log_file ||= if lf = ENV["subtitles_log_file"]?
                        return File.open lf
                      elsif Config.from_args? && (idx = ARGV.index { |arg| Arguments::LogFileOptions.includes? arg })
-                       return File.open ARGV[idx + 1]
+                       ARGV.delete_at idx
+                       return File.open ARGV.delete_at idx
                      else
                        STDOUT
                      end
@@ -38,7 +57,8 @@ module Subtitles
                       elsif ENV["debug"]? || ENV["subtitles_test"]?
                         Logger::Severity::DEBUG
                       elsif Config.from_args? && (idx = ARGV.index { |arg| Arguments::LogLevelOptions.includes? arg })
-                        log_level_string_value ARGV[idx + 1]
+                        ARGV.delete_at idx
+                        log_level_string_value ARGV.delete_at idx
                       else
                         Logger::Severity::INFO
                       end

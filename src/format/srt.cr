@@ -51,7 +51,7 @@ module Subtitles
 
     SRT_TIME_FORMAT = "%H:%M:%S,%L"
 
-    def parse_time(string : String) : Time::Span
+    private def parse_time(string : String) : Time::Span
       time = Time.parse string, SRT_TIME_FORMAT, Time::Location::UTC
       Time::Span.new days: 0, hours: time.hour, minutes: time.minute, seconds: time.second, nanoseconds: time.nanosecond
     end

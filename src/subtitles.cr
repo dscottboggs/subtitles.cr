@@ -19,7 +19,12 @@ module Subtitles
     {% end %}
   end
 
-  def to_captions(content : IO) : Caption
+  def parse(*, filepath : String)
+    File.open filepath do |file|
+      parse file
+    end
+  end
+  def parse(content : IO) : Caption?
     if detected = detect(content)
       detected.new(content).parse
     end

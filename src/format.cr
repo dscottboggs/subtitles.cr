@@ -17,8 +17,12 @@ module Subtitles
 
   # Each subtitle format (like ASS, SRT, JSON, etc.) should be compatible with this interface.
   abstract class Format
+    # The textual representation of the subtitles.
     abstract def content : IO
 
+    # Convert this Substation subtitles file to an intermediary format for
+    # conversion to another format. This process can be lossy, depending on the
+    # format.
     abstract def to_captions
 
     def initialize(@content : IO); end

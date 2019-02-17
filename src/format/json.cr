@@ -1,4 +1,5 @@
 module Subtitles
+  # A JSON representation of the internal intermediary format.
   class JSON
     JSON_FT_REGEX = /^\s*\[\s*\{(\s*.+\s*)+\}\s*\]\s*$/
 
