@@ -4,7 +4,7 @@ require "./spec_helper"
 describe Subtitles::{{filetype.id}} do
   it "parses the example text" do
     content = fixture "{{filetype.id.downcase}}"
-    captions = pp! Subtitles::{{filetype.id}}.new(content).parse eol: "\n"
+    captions = Subtitles::{{filetype.id}}.new(content).parse eol: "\n"
     captions.size.should be > 1
     # TODO better tests of parsed data
     if File.directory? "./output"

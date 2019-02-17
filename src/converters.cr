@@ -4,11 +4,11 @@ module MillisecondsSpanConverter
   MILLIS_TO_NANOS = 1e6
 
   def self.from_json(value : JSON::PullParser)
-    Time::Span.new nanoseconds: (value.read_int * MILLIS_TO_NANOS).to_i
+    Time::Span.new nanoseconds: (value.read_int * MILLIS_TO_NANOS).to_i64
   end
 
-  def self.to_json(value : Time::Span, json : JSON::Builder)
-    builder.string((value.total_nanos / MILLIS_TO_NANOS).to_i)
+  def self.to_json(value : Time::Span, json builder : JSON::Builder)
+    builder.string((value.total_nanoseconds / MILLIS_TO_NANOS).to_i)
   end
 end
 

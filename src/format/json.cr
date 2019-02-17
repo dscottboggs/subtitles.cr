@@ -24,7 +24,7 @@ module Subtitles
     end
 
     def initialize(captions : Array(Caption), eol = "\r\n")
-      @content = captions.to_json
+      @content = IO::Memory.new captions.to_json
     end
 
     def self.detect(content)

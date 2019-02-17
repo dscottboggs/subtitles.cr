@@ -6,12 +6,11 @@ module Subtitles
     SRT_PART_REGEX = /^(\d+)\r?\n(\d{1,2}:\d{1,2}:\d{1,2}([.,]\d{1,3})?)\s*\-\-\>\s*(\d{1,2}:\d{1,2}:\d{1,2}([.,]\d{1,3})?)\r?\n([\s\S]*)(\r?\n)*$/i
 
     def initialize(captions : Array(Caption), eol = "\r\n")
-      @content = String.build do |srt|
-        captions.each_with_index do |caption, index|
-          srt << (index + 1).to_s << eol
-          srt << caption.start << " --> " << caption.end << eol
-          srt << caption.text << eol << eol
-        end
+      @content = IO::Memory.new
+      captions.each_with_index do |caption, index|
+        @content << (index + 1).to_s << eol
+        @content << caption.start << " --> " << caption.end << eol
+        @content << caption.text << eol << eol
       end
     end
 
