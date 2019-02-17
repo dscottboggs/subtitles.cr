@@ -1,4 +1,5 @@
 require "./ssa"
+
 module Subtitles
   class ASS < SSA
     def self.styles_section_header
