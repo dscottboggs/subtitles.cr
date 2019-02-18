@@ -36,6 +36,11 @@
   <div class="types-list">
     <ul>
   
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/toplevel" data-name="top level namespace">
+      <a href="../toplevel.html">Top Level Namespace</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/dscottboggs/subtitles.cr/MillisecondsSpanConverter" data-name="millisecondsspanconverter">
       <a href="../MillisecondsSpanConverter.html">MillisecondsSpanConverter</a>
       
@@ -81,6 +86,11 @@
       
     </li>
   
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Captions" data-name="subtitles::captions">
+      <a href="../Subtitles/Captions.html">Captions</a>
+      
+    </li>
+  
   <li class="parent open current" data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Config" data-name="subtitles::config">
       <a href="../Subtitles/Config.html">Config</a>
       
@@ -91,8 +101,8 @@
       
     </li>
   
-  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Config/Defaults" data-name="subtitles::config::defaults">
-      <a href="../Subtitles/Config/Defaults.html">Defaults</a>
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Config/Default" data-name="subtitles::config::default">
+      <a href="../Subtitles/Config/Default.html">Default</a>
       
     </li>
   
@@ -106,18 +116,28 @@
       
     </li>
   
-  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Formats" data-name="subtitles::formats">
-      <a href="../Subtitles/Formats.html">Formats</a>
-      
-    </li>
-  
   <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/JSON" data-name="subtitles::json">
       <a href="../Subtitles/JSON.html">JSON</a>
       
     </li>
   
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/LRC" data-name="subtitles::lrc">
+      <a href="../Subtitles/LRC.html">LRC</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Meta" data-name="subtitles::meta">
       <a href="../Subtitles/Meta.html">Meta</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/SBV" data-name="subtitles::sbv">
+      <a href="../Subtitles/SBV.html">SBV</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/SMI" data-name="subtitles::smi">
+      <a href="../Subtitles/SMI.html">SMI</a>
       
     </li>
   
@@ -133,6 +153,11 @@
   
   <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Style" data-name="subtitles::style">
       <a href="../Subtitles/Style.html">Style</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/SUB" data-name="subtitles::sub">
+      <a href="../Subtitles/SUB.html">SUB</a>
       
     </li>
   
@@ -158,6 +183,11 @@
   
 </ul>
 
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/VTT" data-name="subtitles::vtt">
+      <a href="../Subtitles/VTT.html">VTT</a>
       
     </li>
   
@@ -199,7 +229,7 @@
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/config.cr#L4" target="_blank">
+      <a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/config.cr#L6" target="_blank">
         config.cr
       </a>
     
@@ -214,7 +244,7 @@
   <dl>
     
       <dt class="entry-const" id="HELP_TEXT">
-        <strong>HELP_TEXT</strong> = <code><span class="s">&quot;subtitles.cr -- convert between subtitles formats\n\nUsage: subtitles /path/to/original.subtitles /path/to/output.format\n\n...where the .format value indicates the filetype you wish to output. The\ninput filetype will be automatically detected from the file contents.\n\nAvailable formats:\n  - .srt          -- SubRip subtitles\n  - .ass and .ssa -- Substation Alpha subtitles\n  - .json         -- A JSON representation of the internal intermediary\n                     format.\n&quot;</span></code>
+        <strong>HELP_TEXT</strong> = <code><span class="s">&quot;subtitles.cr -- convert between subtitles formats\n\nUsage: subtitles /path/to/original.subtitles /path/to/output.format\n\n...where the .format value indicates the filetype you wish to output. The\ninput filetype will be automatically detected from the file contents.\n\nAvailable formats:\n  - .srt          -- SubRip subtitles\n  - .ass and .ssa -- Substation Alpha subtitles\n  - .json         -- A JSON representation of the internal intermediary\n                     format.\n\nOptionally one can specify the `--to` option, to specify an output format.\nThe --to option takes the place of the file extension for a file which\ndoesn&#39;t have one.&quot;</span></code>
       </dt>
       
     
@@ -228,27 +258,42 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
+        <a href="#command_line_interface%28args%3DARGV%29-class-method" class="signature"><strong>.command_line_interface</strong>(args = <span class="t">ARGV</span>)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#from_args%3D%28from_args%3ABool%29-class-method" class="signature"><strong>.from_args=</strong>(from_args : Bool)</a>
+        
+          <div class="summary"><p>Set to false to disable gathering command line arguments</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#from_args%3F%3ABool-class-method" class="signature"><strong>.from_args?</strong> : Bool</a>
         
+          <div class="summary"><p>Set to false to disable gathering command line arguments</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#log_file%3AIO-class-method" class="signature"><strong>.log_file</strong> : IO</a>
+        
+          <div class="summary"><p>where to output any logging info.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#log_level%3ALogger%3A%3ASeverity-class-method" class="signature"><strong>.log_level</strong> : Logger::Severity</a>
         
+          <div class="summary"><p>The amount of debugging information to log</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#logger%3ALogger-class-method" class="signature"><strong>.logger</strong> : Logger</a>
+        
+          <div class="summary"><p>A global(-ish) Logger instance</p></div>
         
       </li>
     
@@ -269,6 +314,22 @@
 
   <h2>Class Method Detail</h2>
   
+    <div class="entry-detail" id="command_line_interface(args=ARGV)-class-method">
+      <div class="signature">
+        
+        def self.<strong>command_line_interface</strong>(args = <span class="t">ARGV</span>)
+
+        <a class="method-permalink" href="#command_line_interface%28args%3DARGV%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/config.cr#L32" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="from_args=(from_args:Bool)-class-method">
       <div class="signature">
         
@@ -277,10 +338,12 @@
         <a class="method-permalink" href="#from_args%3D%28from_args%3ABool%29-class-method">#</a>
       </div>
       
+        <div class="doc"><p>Set to false to disable gathering command line arguments</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/config.cr#L79" target="_blank">View source</a>]
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/config.cr#L156" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -293,10 +356,12 @@
         <a class="method-permalink" href="#from_args%3F%3ABool-class-method">#</a>
       </div>
       
+        <div class="doc"><p>Set to false to disable gathering command line arguments</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/config.cr#L75" target="_blank">View source</a>]
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/config.cr#L152" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -309,10 +374,12 @@
         <a class="method-permalink" href="#log_file%3AIO-class-method">#</a>
       </div>
       
+        <div class="doc"><p>where to output any logging info.</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/config.cr#L41" target="_blank">View source</a>]
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/config.cr#L131" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -325,10 +392,12 @@
         <a class="method-permalink" href="#log_level%3ALogger%3A%3ASeverity-class-method">#</a>
       </div>
       
+        <div class="doc"><p>The amount of debugging information to log</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/config.cr#L54" target="_blank">View source</a>]
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/config.cr#L138" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -341,10 +410,12 @@
         <a class="method-permalink" href="#logger%3ALogger-class-method">#</a>
       </div>
       
+        <div class="doc"><p>A global(-ish) Logger instance</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/config.cr#L69" target="_blank">View source</a>]
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/config.cr#L145" target="_blank">View source</a>]
         
       </div>
     </div>

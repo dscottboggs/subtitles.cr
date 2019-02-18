@@ -1,5 +1,5 @@
-# Extra metadata for filetypes that support it
 module Subtitles
+  # Extra metadata for filetypes that support it
   class Meta
     property data : Hash(String, String)
 

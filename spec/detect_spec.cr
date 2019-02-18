@@ -5,7 +5,7 @@ require "./spec_helper"
 describe Subtitles::\{{filetype.id}} do
   \{% if {{status}} == READY %}it\{% else %}pending\{% end %} "is detected" do
     Subtitles::\{{filetype.id}}
-      .detect(fixture "\{{filetype.id.downcase}}")
+      .detect(IO::Memory.new string: fixture "\{{filetype.id.downcase}}")
       .should eq Subtitles::\{{filetype.id}}
   end
 end

@@ -1,7 +1,9 @@
+require "../format"
+
 module Subtitles
   # A JSON representation of the internal intermediary format.
-  class JSON
-    JSON_FT_REGEX = /^\s*\[\s*\{(\s*.+\s*)+\}\s*\]\s*$/
+  class JSON < Format
+    JSON_FT_REGEX = /^\s*\[\s*\{\s*"/
 
     getter content : IO
 
@@ -24,12 +26,23 @@ module Subtitles
       @content = File.open filepath
     end
 
-    def initialize(captions : Array(Caption), eol = "\r\n")
-      @content = IO::Memory.new captions.to_json
+    def initialize(captions : Captions, eol = "\r\n")
+      @content = IO::Memory.new
+      Subtitles.filter_styles(from: captions).to_json @content
     end
 
-    def self.detect(content)
-      return self if JSON_FT_REGEX.match content
+    def self.detect(content : IO)
+      bytes = if head = content.peek
+                Bytes.new(size: 16) { |index| head[index] }
+              else
+                slice = Bytes.new 16
+                content.read slice
+                content.rewind
+                slice
+              end
+      if JSON_FT_REGEX.match String.new(slice: bytes)
+        self
+      end
     end
   end
 end

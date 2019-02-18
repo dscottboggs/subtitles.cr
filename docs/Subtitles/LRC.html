@@ -14,7 +14,7 @@
 </script>
 
   <meta id="repository-name" content="github.com/dscottboggs/subtitles.cr">
-  <title>Subtitles::JSON - github.com/dscottboggs/subtitles.cr</title>
+  <title>Subtitles::LRC - github.com/dscottboggs/subtitles.cr</title>
 </head>
 <body>
 
@@ -116,12 +116,12 @@
       
     </li>
   
-  <li class=" current" data-id="github.com/dscottboggs/subtitles.cr/Subtitles/JSON" data-name="subtitles::json">
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/JSON" data-name="subtitles::json">
       <a href="../Subtitles/JSON.html">JSON</a>
       
     </li>
   
-  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/LRC" data-name="subtitles::lrc">
+  <li class=" current" data-id="github.com/dscottboggs/subtitles.cr/Subtitles/LRC" data-name="subtitles::lrc">
       <a href="../Subtitles/LRC.html">LRC</a>
       
     </li>
@@ -205,19 +205,19 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Subtitles::JSON
+  <span class="kind">class</span> Subtitles::LRC
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Subtitles/JSON.html">Subtitles::JSON</a></li><li class="superclass"><a href="../Subtitles/Format.html">Subtitles::Format</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Subtitles/LRC.html">Subtitles::LRC</a></li><li class="superclass"><a href="../Subtitles/Format.html">Subtitles::Format</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
 
   <h2>Overview</h2>
 
-  <p>A JSON representation of the internal intermediary format.</p>
+  <p>.lrc files are not yet supported.</p>
 
 
 
@@ -235,8 +235,8 @@
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/json.cr#L5" target="_blank">
-        format/json.cr
+      <a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/not_yet_implemented.cr#L1" target="_blank">
+        format/not_yet_implemented.cr
       </a>
     
     <br/>
@@ -244,46 +244,13 @@
 
 
 
-  
-    <h2>Constant Summary</h2>
-  
-  <dl>
-    
-      <dt class="entry-const" id="JSON_FT_REGEX">
-        <strong>JSON_FT_REGEX</strong> = <code><span class="s">/^\s*\[\s*\{\s*&quot;/</span></code>
-      </dt>
-      
-    
-  </dl>
-
 
 
   <h2>Constructors</h2>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28content%3AIO%29-class-method" class="signature"><strong>.new</strong>(content : IO)</a>
-        
-          <div class="summary"><p>initialize with the content</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#new%28contentstring%3AString%29-class-method" class="signature"><strong>.new</strong>(content string : String)</a>
-        
-          <div class="summary"><p>initialize with the content</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#new%28captions%3ACaptions%2Ceol%3D%26quot%3B%5Cr%5Cn%26quot%3B%29-class-method" class="signature"><strong>.new</strong>(captions : Captions, eol = <span class="s">&quot;\r\n&quot;</span>)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#new%28%2A%2Cfilepath%3AString%29-class-method" class="signature"><strong>.new</strong>(*, filepath : String)</a>
-        
-          <div class="summary"><p>Read in a JSON-formatted subtitle from the given filepath.</p></div>
+        <a href="#new%28%2Aargs%2C%2A%2Aoptions%29-class-method" class="signature"><strong>.new</strong>(*args, **options)</a>
         
       </li>
     
@@ -295,7 +262,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#detect%28content%3AIO%29-class-method" class="signature"><strong>.detect</strong>(content : IO)</a>
+        <a href="#detect%28%2Aargs%2C%2A%2Aoptions%29-class-method" class="signature"><strong>.detect</strong>(*args, **options)</a>
         
       </li>
     
@@ -307,12 +274,12 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#content%3AIO-instance-method" class="signature"><strong>#content</strong> : IO</a>
+        <a href="#content%28%2Aargs%2C%2A%2Aoptions%29-instance-method" class="signature"><strong>#content</strong>(*args, **options)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#to_captions%28eol%3Dnil%29-instance-method" class="signature"><strong>#to_captions</strong>(eol = <span class="n">nil</span>)</a>
+        <a href="#to_captions%28%2Aargs%2C%2A%2Aoptions%29-instance-method" class="signature"><strong>#to_captions</strong>(*args, **options)</a>
         
       </li>
     
@@ -387,72 +354,18 @@
 
   <h2>Constructor Detail</h2>
   
-    <div class="entry-detail" id="new(content:IO)-class-method">
+    <div class="entry-detail" id="new(*args,**options)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(content : IO)
+        def self.<strong>new</strong>(*args, **options)
 
-        <a class="method-permalink" href="#new%28content%3AIO%29-class-method">#</a>
-      </div>
-      
-        <div class="doc"><p>initialize with the content</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/json.cr#L17" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="new(contentstring:String)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(content string : String)
-
-        <a class="method-permalink" href="#new%28contentstring%3AString%29-class-method">#</a>
-      </div>
-      
-        <div class="doc"><p>initialize with the content</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/json.cr#L20" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="new(captions:Captions,eol=&amp;quot;\r\n&amp;quot;)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(captions : <a href="../Subtitles/Captions.html">Captions</a>, eol = <span class="s">&quot;\r\n&quot;</span>)
-
-        <a class="method-permalink" href="#new%28captions%3ACaptions%2Ceol%3D%26quot%3B%5Cr%5Cn%26quot%3B%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28%2Aargs%2C%2A%2Aoptions%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/json.cr#L29" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="new(*,filepath:String)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(*, filepath : String)
-
-        <a class="method-permalink" href="#new%28%2A%2Cfilepath%3AString%29-class-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Read in a JSON-formatted subtitle from the given filepath.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/json.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/not_yet_implemented.cr#L1" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -462,18 +375,18 @@
 
   <h2>Class Method Detail</h2>
   
-    <div class="entry-detail" id="detect(content:IO)-class-method">
+    <div class="entry-detail" id="detect(*args,**options)-class-method">
       <div class="signature">
         
-        def self.<strong>detect</strong>(content : IO)
+        def self.<strong>detect</strong>(*args, **options)
 
-        <a class="method-permalink" href="#detect%28content%3AIO%29-class-method">#</a>
+        <a class="method-permalink" href="#detect%28%2Aargs%2C%2A%2Aoptions%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/json.cr#L34" target="_blank">View source</a>]
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/not_yet_implemented.cr#L1" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -483,34 +396,34 @@
 
   <h2>Instance Method Detail</h2>
   
-    <div class="entry-detail" id="content:IO-instance-method">
+    <div class="entry-detail" id="content(*args,**options)-instance-method">
       <div class="signature">
         
-        def <strong>content</strong> : IO
+        def <strong>content</strong>(*args, **options)
 
-        <a class="method-permalink" href="#content%3AIO-instance-method">#</a>
+        <a class="method-permalink" href="#content%28%2Aargs%2C%2A%2Aoptions%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/json.cr#L10" target="_blank">View source</a>]
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/not_yet_implemented.cr#L1" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="to_captions(eol=nil)-instance-method">
+    <div class="entry-detail" id="to_captions(*args,**options)-instance-method">
       <div class="signature">
         
-        def <strong>to_captions</strong>(eol = <span class="n">nil</span>)
+        def <strong>to_captions</strong>(*args, **options)
 
-        <a class="method-permalink" href="#to_captions%28eol%3Dnil%29-instance-method">#</a>
+        <a class="method-permalink" href="#to_captions%28%2Aargs%2C%2A%2Aoptions%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/json.cr#L10" target="_blank">View source</a>]
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/not_yet_implemented.cr#L1" target="_blank">View source</a>]
         
       </div>
     </div>

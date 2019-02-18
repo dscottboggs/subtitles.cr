@@ -14,7 +14,7 @@
 </script>
 
   <meta id="repository-name" content="github.com/dscottboggs/subtitles.cr">
-  <title>Subtitles::Substation::StyleBeforeFormat - github.com/dscottboggs/subtitles.cr</title>
+  <title>Subtitles::Config::Default - github.com/dscottboggs/subtitles.cr</title>
 </head>
 <body>
 
@@ -91,7 +91,7 @@
       
     </li>
   
-  <li class="parent " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Config" data-name="subtitles::config">
+  <li class="parent open current" data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Config" data-name="subtitles::config">
       <a href="../../Subtitles/Config.html">Config</a>
       
         <ul>
@@ -101,7 +101,7 @@
       
     </li>
   
-  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Config/Default" data-name="subtitles::config::default">
+  <li class=" current" data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Config/Default" data-name="subtitles::config::default">
       <a href="../../Subtitles/Config/Default.html">Default</a>
       
     </li>
@@ -161,7 +161,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Substation" data-name="subtitles::substation">
+  <li class="parent " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Substation" data-name="subtitles::substation">
       <a href="../../Subtitles/Substation.html">Substation</a>
       
         <ul>
@@ -176,7 +176,7 @@
       
     </li>
   
-  <li class=" current" data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Substation/StyleBeforeFormat" data-name="subtitles::substation::stylebeforeformat">
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Substation/StyleBeforeFormat" data-name="subtitles::substation::stylebeforeformat">
       <a href="../../Subtitles/Substation/StyleBeforeFormat.html">StyleBeforeFormat</a>
       
     </li>
@@ -205,21 +205,17 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Subtitles::Substation::StyleBeforeFormat
+  <span class="kind">module</span> Subtitles::Config::Default
 
 </h1>
 
-
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Subtitles/Substation/StyleBeforeFormat.html">Subtitles::Substation::StyleBeforeFormat</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
 
   <h2>Overview</h2>
 
-  <p>An exception which is raised when the [Format] tag comes physically after
-the [Style] tag in the file or buffer. When this occurs we have no
-column in which to place the fields of the recieved row.</p>
+  <p>Default configuration values</p>
 
 
 
@@ -237,8 +233,8 @@ column in which to place the fields of the recieved row.</p>
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/substation.cr#L241" target="_blank">
-        format/substation.cr
+      <a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/config.cr#L91" target="_blank">
+        config.cr
       </a>
     
     <br/>
@@ -248,11 +244,20 @@ column in which to place the fields of the recieved row.</p>
 
 
 
-  <h2>Constructors</h2>
+
+
+  <h2>Class Method Summary</h2>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28position%29-class-method" class="signature"><strong>.new</strong>(position)</a>
+        <a href="#log_file-class-method" class="signature"><strong>.log_file</strong></a>
+        
+          <div class="summary"><p>The default log file is</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#log_level-class-method" class="signature"><strong>.log_level</strong></a>
         
       </li>
     
@@ -264,63 +269,49 @@ column in which to place the fields of the recieved row.</p>
 
 
 
-
-
 <div class="methods-inherited">
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
   
 </div>
 
 
-  <h2>Constructor Detail</h2>
+
+
+  <h2>Class Method Detail</h2>
   
-    <div class="entry-detail" id="new(position)-class-method">
+    <div class="entry-detail" id="log_file-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(position)
+        def self.<strong>log_file</strong>
 
-        <a class="method-permalink" href="#new%28position%29-class-method">#</a>
+        <a class="method-permalink" href="#log_file-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The default log file is</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/config.cr#L93" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="log_level-class-method">
+      <div class="signature">
+        
+        def self.<strong>log_level</strong>
+
+        <a class="method-permalink" href="#log_level-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/substation.cr#L242" target="_blank">View source</a>]
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/config.cr#L103" target="_blank">View source</a>]
         
       </div>
     </div>
   
-
-
 
 
 

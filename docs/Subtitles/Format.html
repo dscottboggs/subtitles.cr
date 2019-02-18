@@ -36,6 +36,11 @@
   <div class="types-list">
     <ul>
   
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/toplevel" data-name="top level namespace">
+      <a href="../toplevel.html">Top Level Namespace</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/dscottboggs/subtitles.cr/MillisecondsSpanConverter" data-name="millisecondsspanconverter">
       <a href="../MillisecondsSpanConverter.html">MillisecondsSpanConverter</a>
       
@@ -81,6 +86,11 @@
       
     </li>
   
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Captions" data-name="subtitles::captions">
+      <a href="../Subtitles/Captions.html">Captions</a>
+      
+    </li>
+  
   <li class="parent " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Config" data-name="subtitles::config">
       <a href="../Subtitles/Config.html">Config</a>
       
@@ -91,8 +101,8 @@
       
     </li>
   
-  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Config/Defaults" data-name="subtitles::config::defaults">
-      <a href="../Subtitles/Config/Defaults.html">Defaults</a>
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Config/Default" data-name="subtitles::config::default">
+      <a href="../Subtitles/Config/Default.html">Default</a>
       
     </li>
   
@@ -106,18 +116,28 @@
       
     </li>
   
-  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Formats" data-name="subtitles::formats">
-      <a href="../Subtitles/Formats.html">Formats</a>
-      
-    </li>
-  
   <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/JSON" data-name="subtitles::json">
       <a href="../Subtitles/JSON.html">JSON</a>
       
     </li>
   
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/LRC" data-name="subtitles::lrc">
+      <a href="../Subtitles/LRC.html">LRC</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Meta" data-name="subtitles::meta">
       <a href="../Subtitles/Meta.html">Meta</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/SBV" data-name="subtitles::sbv">
+      <a href="../Subtitles/SBV.html">SBV</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/SMI" data-name="subtitles::smi">
+      <a href="../Subtitles/SMI.html">SMI</a>
       
     </li>
   
@@ -133,6 +153,11 @@
   
   <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Style" data-name="subtitles::style">
       <a href="../Subtitles/Style.html">Style</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/SUB" data-name="subtitles::sub">
+      <a href="../Subtitles/SUB.html">SUB</a>
       
     </li>
   
@@ -158,6 +183,11 @@
   
 </ul>
 
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/VTT" data-name="subtitles::vtt">
+      <a href="../Subtitles/VTT.html">VTT</a>
       
     </li>
   
@@ -200,9 +230,21 @@
   <h2>Direct Known Subclasses</h2>
   <ul class="other-types-list">
   
+    <li class="other-type"><a href="../Subtitles/JSON.html">Subtitles::JSON</a></li>
+  
+    <li class="other-type"><a href="../Subtitles/LRC.html">Subtitles::LRC</a></li>
+  
+    <li class="other-type"><a href="../Subtitles/SBV.html">Subtitles::SBV</a></li>
+  
+    <li class="other-type"><a href="../Subtitles/SMI.html">Subtitles::SMI</a></li>
+  
     <li class="other-type"><a href="../Subtitles/SRT.html">Subtitles::SRT</a></li>
   
+    <li class="other-type"><a href="../Subtitles/SUB.html">Subtitles::SUB</a></li>
+  
     <li class="other-type"><a href="../Subtitles/Substation.html">Subtitles::Substation</a></li>
+  
+    <li class="other-type"><a href="../Subtitles/VTT.html">Subtitles::VTT</a></li>
   
   </ul>
 
@@ -214,7 +256,7 @@
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format.cr#L19" target="_blank">
+      <a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format.cr#L20" target="_blank">
         format.cr
       </a>
     
@@ -225,27 +267,24 @@
 
 
 
-  <h2>Constructors</h2>
+
+
+  <h2>Class Method Summary</h2>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28content%3AIO%29-class-method" class="signature"><strong>.new</strong>(content : IO)</a>
+        <a href="#detect-class-method" class="signature"><strong>.detect</strong></a>
+        
+          <div class="summary"><p>detect this filetype</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new%28contentstring%3AString%29-class-method" class="signature"><strong>.new</strong>(content string : String)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#new%28%2A%2Cfilepath%3AString%29-class-method" class="signature"><strong>.new</strong>(*, filepath : String)</a>
+        <a href="#from_extension%28extensionstring%3AString%29%3Aself.class%3F-class-method" class="signature"><strong>.from_extension</strong>(extension string : String) : <span class="k">self</span>.<span class="k">class</span>?</a>
         
       </li>
     
   </ul>
-
-
 
 
 
@@ -256,11 +295,6 @@
         <a href="#content%3AIO-instance-method" class="signature"><strong>#content</strong> : IO</a>
         
           <div class="summary"><p>The textual representation of the subtitles.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#finalize-instance-method" class="signature"><strong>#finalize</strong></a>
         
       </li>
     
@@ -302,58 +336,44 @@
 </div>
 
 
-  <h2>Constructor Detail</h2>
+
+
+  <h2>Class Method Detail</h2>
   
-    <div class="entry-detail" id="new(content:IO)-class-method">
+    <div class="entry-detail" id="detect-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(content : IO)
+        def self.<strong>detect</strong>
 
-        <a class="method-permalink" href="#new%28content%3AIO%29-class-method">#</a>
+        <a class="method-permalink" href="#detect-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>detect this filetype</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format.cr#L30" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="from_extension(extensionstring:String):self.class?-class-method">
+      <div class="signature">
+        
+        def self.<strong>from_extension</strong>(extension string : String) : <span class="k">self</span>.<span class="k">class</span>?
+
+        <a class="method-permalink" href="#from_extension%28extensionstring%3AString%29%3Aself.class%3F-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format.cr#L28" target="_blank">View source</a>]
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format.cr#L56" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="new(contentstring:String)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(content string : String)
-
-        <a class="method-permalink" href="#new%28contentstring%3AString%29-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format.cr#L30" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="new(*,filepath:String)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(*, filepath : String)
-
-        <a class="method-permalink" href="#new%28%2A%2Cfilepath%3AString%29-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format.cr#L34" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-
-
 
 
 
@@ -372,23 +392,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format.cr#L21" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="finalize-instance-method">
-      <div class="signature">
-        
-        def <strong>finalize</strong>
-
-        <a class="method-permalink" href="#finalize-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format.cr#L38" target="_blank">View source</a>]
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -408,7 +412,7 @@ format.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format.cr#L26" target="_blank">View source</a>]
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format.cr#L27" target="_blank">View source</a>]
         
       </div>
     </div>

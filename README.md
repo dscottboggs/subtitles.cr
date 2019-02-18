@@ -8,11 +8,12 @@ between ASS, SSA, SRT, and JSON formats, more formats planned.
 
 1. Add the dependency to your `shard.yml`:
 
-   ```yaml
-   dependencies:
-     subtitles.cr:
-       github: your-github-user/subtitles.cr
-   ```
+```yaml
+dependencies:
+  subtitles.cr:
+    github: dscottboggs/subtitles.cr
+
+```
 
 2. Run `shards install`
 
@@ -35,8 +36,8 @@ end
 
 # Alternatively, serve over HTTP:
 module Middleware
-  # Obviously the above steps need applied here too.
   def call(request : HTTP::Request, response : HTTP::Server::Response)
+    # Obviously the above steps need applied here too.
     IO.copy ass, response
   end
 end
@@ -49,9 +50,9 @@ gets the chance to implement the remaining formats before I do, follow these
 steps:
 
  1. Write your parser as an implementation of the `Subtitles::Format` interface,
-    and store it alongside the other formats in `src/format`.
+ and store it alongside the other formats in `src/format`.
  2. when you're done, move the symbol for your format from the `PENDING` list to
-    `READY` in `spec/spec_helper.cr`.
+ `READY` in `spec/spec_helper.cr`.
  3. run `crystal spec`
 
 For example, if you were implementing the `vtt` format, you'd store the
@@ -66,7 +67,7 @@ READY   = {:SRT, :JSON, :ASS, :SSA, :VTT}
 
 ## Contributing
 
-1. Fork it (<https://github.com/your-github-user/subtitles.cr/fork>)
+1. Fork it (<https://github.com/dscottboggs/subtitles.cr/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -74,4 +75,4 @@ READY   = {:SRT, :JSON, :ASS, :SSA, :VTT}
 
 ## Contributors
 
-- [D. Scott Boggs](https://github.com/your-github-user) - creator and maintainer
+- [D. Scott Boggs](https://github.com/dscottboggs) - creator and maintainer

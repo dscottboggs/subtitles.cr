@@ -1,3 +1,4 @@
+require "./core_ext/**"
 require "./format"
 require "./config"
 
@@ -24,10 +25,32 @@ module Subtitles
       parse file
     end
   end
-  def parse(content : IO) : Caption?
-    if detected = detect(content)
-      detected.new(content).parse
+
+  alias Captions = Array(Caption | Style) | Array(Caption)
+  def parse(content : IO) : Captions?
+    if detected = detect content
+      detected.new(content).to_captions
     end
+  end
+
+  def filter_styles(from captions : Captions) : Array(Caption)
+    captions.reject { |ent| ent.is_a? Style }.as Array(Caption)
+  end
+
+  def parse!(content) : Captions
+    (parse content) || raise "Couldn't detect the filetype of #{content.inspect}"
+  end
+
+  def by_extension(file : File) : Format.class | Nil
+    by_extension file.path
+  end
+
+  def by_extension(filepath : String) : Format.class | Nil
+    Format.from_extension File.basename(filepath).split('.').last
+  end
+
+  def by_extension!(file) : Format.class
+    by_extension(file) || raise "filetype for #{file.inspect} is not yet implemented"
   end
 
   def convert(content : IO, to format : Format.class, resync resync_option = false)
@@ -58,3 +81,5 @@ module Subtitles
     synced
   end
 end
+
+Subtitles::Config.command_line_interface

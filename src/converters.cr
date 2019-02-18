@@ -16,11 +16,11 @@ end
 
 # Methods for sanitizing individual strings within structures of strings.
 module Sanitizer
-  private def self.sanitize(string : String)
+  def sanitize(string : String)
     string.gsub "\\\\", "\\"
   end
 
-  private def self.dirty(sanitized string : String)
+  def dirty(sanitized string : String)
     string.gsub "\\", "\\\\"
   end
 end
@@ -28,7 +28,8 @@ end
 # Filter troublesome characters from the JSON. Currently just doubles up on
 # backslashes.
 module SanitizeString
-  include Sanitizer
+  extend Sanitizer
+
   def self.from_json(value : JSON::PullParser)
     dirty value.read_string
   end
@@ -40,7 +41,7 @@ end
 
 # The same filter as SanitizeString, just for a Hash of String to String
 module SanitizeStringHash
-  include Sanitizer
+  extend Sanitizer
   alias StringHash = Hash(String, String)
 
   def self.from_json(value : JSON::PullParser)

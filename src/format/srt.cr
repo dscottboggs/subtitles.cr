@@ -5,9 +5,9 @@ module Subtitles
     SRT_REGEX      = /^\d+\r?\n\d{1,2}:\d{1,2}:\d{1,2}([.,]\d{1,3})?\s*\-\-\>\s*\d{1,2}:\d{1,2}:\d{1,2}([.,]\d{1,3})?/i
     SRT_PART_REGEX = /^(\d+)\r?\n(\d{1,2}:\d{1,2}:\d{1,2}([.,]\d{1,3})?)\s*\-\-\>\s*(\d{1,2}:\d{1,2}:\d{1,2}([.,]\d{1,3})?)\r?\n([\s\S]*)(\r?\n)*$/i
 
-    def initialize(captions : Array(Caption), eol = "\r\n")
+    def initialize(captions : Captions, eol = "\r\n")
       @content = IO::Memory.new
-      captions.each_with_index do |caption, index|
+      Subtitles.filter_styles(from: captions).each_with_index do |caption, index|
         @content << (index + 1).to_s << eol
         @content << caption.start << " --> " << caption.end << eol
         @content << caption.text << eol << eol
@@ -60,6 +60,26 @@ module Subtitles
       if SRT_REGEX.match content
         self
       end
+    end
+
+    def self.detect(content : IO)
+      # File#peek returns 8096 bytes, more than enough to check the filetype,
+      # but other IO types may not implement peek. As a fallback, reads the
+      # first 3 lines into a string and checks those, and then rewinds the IO.
+      #
+      # This method **always** rewinds the IO.
+      text = if head = content.rewind.peek
+               str = String.new slice: Bytes.new(512) { |idx| head[idx] }
+               str.gsub { |char| char if char.ascii? }
+             else
+               String.build do |str|
+                 3.times do
+                   str << content.gets limit: 1024
+                 end
+                 content.rewind
+               end
+             end
+      self if SRT_REGEX.match text
     end
   end
 end

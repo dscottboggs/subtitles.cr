@@ -36,6 +36,11 @@
   <div class="types-list">
     <ul>
   
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/toplevel" data-name="top level namespace">
+      <a href="../toplevel.html">Top Level Namespace</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/dscottboggs/subtitles.cr/MillisecondsSpanConverter" data-name="millisecondsspanconverter">
       <a href="../MillisecondsSpanConverter.html">MillisecondsSpanConverter</a>
       
@@ -81,6 +86,11 @@
       
     </li>
   
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Captions" data-name="subtitles::captions">
+      <a href="../Subtitles/Captions.html">Captions</a>
+      
+    </li>
+  
   <li class="parent " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Config" data-name="subtitles::config">
       <a href="../Subtitles/Config.html">Config</a>
       
@@ -91,8 +101,8 @@
       
     </li>
   
-  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Config/Defaults" data-name="subtitles::config::defaults">
-      <a href="../Subtitles/Config/Defaults.html">Defaults</a>
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Config/Default" data-name="subtitles::config::default">
+      <a href="../Subtitles/Config/Default.html">Default</a>
       
     </li>
   
@@ -106,18 +116,28 @@
       
     </li>
   
-  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Formats" data-name="subtitles::formats">
-      <a href="../Subtitles/Formats.html">Formats</a>
-      
-    </li>
-  
   <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/JSON" data-name="subtitles::json">
       <a href="../Subtitles/JSON.html">JSON</a>
       
     </li>
   
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/LRC" data-name="subtitles::lrc">
+      <a href="../Subtitles/LRC.html">LRC</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Meta" data-name="subtitles::meta">
       <a href="../Subtitles/Meta.html">Meta</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/SBV" data-name="subtitles::sbv">
+      <a href="../Subtitles/SBV.html">SBV</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/SMI" data-name="subtitles::smi">
+      <a href="../Subtitles/SMI.html">SMI</a>
       
     </li>
   
@@ -133,6 +153,11 @@
   
   <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/Style" data-name="subtitles::style">
       <a href="../Subtitles/Style.html">Style</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/SUB" data-name="subtitles::sub">
+      <a href="../Subtitles/SUB.html">SUB</a>
       
     </li>
   
@@ -161,6 +186,11 @@
       
     </li>
   
+  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/Subtitles/VTT" data-name="subtitles::vtt">
+      <a href="../Subtitles/VTT.html">VTT</a>
+      
+    </li>
+  
 </ul>
 
       
@@ -180,7 +210,7 @@
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Subtitles/ASS.html">Subtitles::ASS</a></li><li class="superclass"><a href="../Subtitles/SSA.html">Subtitles::SSA</a></li><li class="superclass"><a href="../Subtitles/Substation.html">Subtitles::Substation</a></li><li class="superclass"><a href="../Subtitles/Format.html">Subtitles::Format</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Subtitles/ASS.html">Subtitles::ASS</a></li><li class="superclass"><a href="../Subtitles/Substation.html">Subtitles::Substation</a></li><li class="superclass"><a href="../Subtitles/Format.html">Subtitles::Format</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -201,7 +231,7 @@
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/ass.cr#L4" target="_blank">
+      <a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/ass.cr#L5" target="_blank">
         format/ass.cr
       </a>
     
@@ -220,25 +250,35 @@
       <li class="entry-summary">
         <a href="#default_style-class-method" class="signature"><strong>.default_style</strong></a>
         
+          <div class="summary"><p>The default style for subtitles coming from formats without formatting options.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#first_dialogue_column-class-method" class="signature"><strong>.first_dialogue_column</strong></a>
+        
+          <div class="summary"><p>The content of the first column of a dialogue row.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#first_format_column-class-method" class="signature"><strong>.first_format_column</strong></a>
         
+          <div class="summary"><p>The content of the first column of a format row.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#style_format_columns-class-method" class="signature"><strong>.style_format_columns</strong></a>
         
+          <div class="summary"><p>The column headers for the default style</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#styles_section_header-class-method" class="signature"><strong>.styles_section_header</strong></a>
+        
+          <div class="summary"><p>The header for the Styles section.</p></div>
         
       </li>
     
@@ -251,45 +291,6 @@
 
 
 <div class="methods-inherited">
-  
-    
-
-
-    
-
-
-    
-
-  <h3>Class methods inherited from class <code><a href="../Subtitles/SSA.html">Subtitles::SSA</a></code></h3>
-  
-  
-    <a href="../Subtitles/SSA.html#default_style-class-method" class="tooltip">
-      <span>default_style</span>
-    default_style</a>, 
-    
-  
-    <a href="../Subtitles/SSA.html#first_dialogue_column-class-method" class="tooltip">
-      <span>first_dialogue_column</span>
-    first_dialogue_column</a>, 
-    
-  
-    <a href="../Subtitles/SSA.html#first_format_column-class-method" class="tooltip">
-      <span>first_format_column</span>
-    first_format_column</a>, 
-    
-  
-    <a href="../Subtitles/SSA.html#style_format_columns-class-method" class="tooltip">
-      <span>style_format_columns</span>
-    style_format_columns</a>, 
-    
-  
-    <a href="../Subtitles/SSA.html#styles_section_header-class-method" class="tooltip">
-      <span>styles_section_header</span>
-    styles_section_header</a>
-    
-  
-
-
   
     
 
@@ -334,7 +335,7 @@
   
   
     <a href="../Subtitles/Substation.html#new%28content%3AIO%29-class-method" class="tooltip">
-      <span>new(content : IO)<br/>new(content string : String)<br/>new(captions : Array(Caption | Style), eol = <span class="s">&quot;\r\n&quot;</span>)<br/>new(*, filepath : String)</span>
+      <span>new(content : IO)<br/>new(content string : String)<br/>new(captions : Captions, eol = <span class="s">&quot;\r\n&quot;</span>)<br/>new(*, filepath : String)</span>
     new</a>
     
   
@@ -351,7 +352,7 @@
     
   
     <a href="../Subtitles/Substation.html#detect%28content%3AString%29-class-method" class="tooltip">
-      <span>detect(content : String)</span>
+      <span>detect(content : String)<br/>detect(content : IO)</span>
     detect</a>, 
     
   
@@ -388,11 +389,6 @@
     content</a>, 
     
   
-    <a href="../Subtitles/Format.html#finalize-instance-method" class="tooltip">
-      <span>finalize</span>
-    finalize</a>, 
-    
-  
     <a href="../Subtitles/Format.html#to_captions-instance-method" class="tooltip">
       <span>to_captions</span>
     to_captions</a>
@@ -402,17 +398,22 @@
 
     
 
-  <h3>Constructor methods inherited from class <code><a href="../Subtitles/Format.html">Subtitles::Format</a></code></h3>
-  
-  
-    <a href="../Subtitles/Format.html#new%28content%3AIO%29-class-method" class="tooltip">
-      <span>new(content : IO)<br/>new(content string : String)<br/>new(*, filepath : String)</span>
-    new</a>
-    
-  
-
 
     
+
+  <h3>Class methods inherited from class <code><a href="../Subtitles/Format.html">Subtitles::Format</a></code></h3>
+  
+  
+    <a href="../Subtitles/Format.html#detect-class-method" class="tooltip">
+      <span>detect</span>
+    detect</a>, 
+    
+  
+    <a href="../Subtitles/Format.html#from_extension%28extensionstring%3AString%29%3Aself.class%3F-class-method" class="tooltip">
+      <span>from_extension(extension string : String) : <span class="k">self</span>.<span class="k">class</span>?</span>
+    from_extension</a>
+    
+  
 
 
   
@@ -451,10 +452,13 @@
         <a class="method-permalink" href="#default_style-class-method">#</a>
       </div>
       
+        <div class="doc"><p>The default style for subtitles coming from formats without formatting
+options.</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/ass.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/ass.cr#L29" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -467,10 +471,12 @@
         <a class="method-permalink" href="#first_dialogue_column-class-method">#</a>
       </div>
       
+        <div class="doc"><p>The content of the first column of a dialogue row.</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/ass.cr#L9" target="_blank">View source</a>]
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/ass.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -483,10 +489,12 @@
         <a class="method-permalink" href="#first_format_column-class-method">#</a>
       </div>
       
+        <div class="doc"><p>The content of the first column of a format row.</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/ass.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/ass.cr#L23" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -499,10 +507,12 @@
         <a class="method-permalink" href="#style_format_columns-class-method">#</a>
       </div>
       
+        <div class="doc"><p>The column headers for the default style</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/ass.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/ass.cr#L34" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -515,10 +525,12 @@
         <a class="method-permalink" href="#styles_section_header-class-method">#</a>
       </div>
       
+        <div class="doc"><p>The header for the Styles section. Either [V4 Styles] or [V4+ Styles]</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/78709188f91b60d246dc7c22473adacb0eed55c8/src/format/ass.cr#L5" target="_blank">View source</a>]
+          [<a href="https://github.com/dscottboggs/subtitles.cr/blob/b5cec6f729ed4e2a8280eb652727ecad4a16ce18/src/format/ass.cr#L13" target="_blank">View source</a>]
         
       </div>
     </div>
