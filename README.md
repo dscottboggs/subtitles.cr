@@ -25,7 +25,7 @@ Download a release binary for your OS from the [releases](https://github.com/dsc
 
 ##### *OR*
 
-1. Install Crystal
+1. Install [Crystal](https://crystal-lang.org/reference/installation/index.html)
 2. Clone this repository
 3. From a shell within the repository, run `shards install && crystal build --release -o/usr/local/bin/subtitles src/subtitles.cr`
 
