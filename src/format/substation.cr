@@ -61,12 +61,21 @@ module Subtitles
       content << "Format: #{first_format_column}, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text" << eol
       captions.reject(&.is_a? Style).as(Array(Caption)).each do |caption|
         content << "Dialogue: #{first_dialogue_column},"
-        content << caption.start.to_s << ","
-        content << caption.end.to_s << ","
-        content << ",DefaultVCD, NTP,0000,0000,0000,,"
+        content << format(time: caption.start) << ","
+        content << format(time: caption.end) << ","
+        content << "DefaultVCD,NTP,0000,0000,0000,,"
         content << caption.text.gsub(/\r?\n/, "\\N") << eol
       end
-      new content
+      new content.rewind
+    end
+
+    private def self.format(time : Time::Span)
+      String.build do |s|
+        s << time.hours << ':' <<
+           time.minutes << ':' <<
+           time.seconds << '.'
+        s << time.nanoseconds.to_s[0..1]
+      end
     end
 
     # Find the first Style in a list of `Style`s or `Caption`s, and return it.

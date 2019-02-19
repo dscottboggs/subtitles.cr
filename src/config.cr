@@ -31,8 +31,7 @@ module Subtitles
 
     def self.command_line_interface(args = ARGV)
       infile, outfile, to_arg = nil, nil, nil
-      loop do
-        arg = args.shift
+      while arg = args.shift?
         if Arguments::LogFileOptions.includes? arg
           args.shift # again to eat another arg
         elsif Arguments::LogLevelOptions.includes? arg
@@ -57,7 +56,6 @@ module Subtitles
                      end
           end
         end
-        break if args.size == 0
       end
       if (input = infile) && (output = outfile)
         filetype = if output.is_a? File
@@ -83,7 +81,7 @@ module Subtitles
         output.close unless output == STDOUT
       else
         STDERR.puts "Got input file #{infile.inspect} and output file #{outfile.inspect}"
-        exit USAGE
+        exit USAGE unless ENV["testing"]?
       end
     end
 

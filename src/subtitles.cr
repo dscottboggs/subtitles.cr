@@ -27,6 +27,7 @@ module Subtitles
   end
 
   alias Captions = Array(Caption | Style) | Array(Caption)
+
   def parse(content : IO) : Captions?
     if detected = detect content
       detected.new(content).to_captions

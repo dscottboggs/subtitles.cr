@@ -69,8 +69,12 @@ module Subtitles
       #
       # This method **always** rewinds the IO.
       text = if head = content.rewind.peek
-               str = String.new slice: Bytes.new(512) { |idx| head[idx] }
-               str.gsub { |char| char if char.ascii? }
+               if head.size > 512
+                 str = String.new slice: Bytes.new(512) { |idx| head[idx] }
+                 str.gsub { |char| char if char.ascii? }
+               else
+                 String.new head
+               end
              else
                String.build do |str|
                  3.times do

@@ -9,8 +9,8 @@ Style: DefaultVCD, Arial,28,&H00B4FCFC,&H00B4FCFC,&H00000008,&H80000008,-1,0,0,0
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,00:00:00.599000000,00:00:04.160000000,,DefaultVCD, NTP,0000,0000,0000,,Hi, my name is Alice Miller and this is John Brown
-Dialogue: 0,00:00:04.160000000,00:00:06.770000000,,DefaultVCD, NTP,0000,0000,0000,,and we're the owners of Miller Bakery.
-Dialogue: 0,00:00:06.770000000,00:00:10.880000000,,DefaultVCD, NTP,0000,0000,0000,,Today we'll be teaching you how to make\Nour famous chocolate chip cookies!
-Dialogue: 0,00:00:10.880000000,00:00:16.700000000,,DefaultVCD, NTP,0000,0000,0000,,[intro music]
-Dialogue: 0,00:00:16.700000000,00:00:21.480000000,,DefaultVCD, NTP,0000,0000,0000,,Okay, so we have all the ingredients laid out here
+Dialogue: 0,0:00:00.59,0:00:40.16,DefaultVCD,NTP,0000,0000,0000,,Hi, my name is Alice Miller and this is John Brown
+Dialogue: 0,0:00:40.16,0:00:60.77,DefaultVCD,NTP,0000,0000,0000,,and we're the owners of Miller Bakery.
+Dialogue: 0,0:00:60.77,0:00:10.88,DefaultVCD,NTP,0000,0000,0000,,Today we'll be teaching you how to make\Nour famous chocolate chip cookies!
+Dialogue: 0,0:00:10.88,0:00:16.70,DefaultVCD,NTP,0000,0000,0000,,[intro music]
+Dialogue: 0,0:00:16.70,0:00:21.48,DefaultVCD,NTP,0000,0000,0000,,Okay, so we have all the ingredients laid out here

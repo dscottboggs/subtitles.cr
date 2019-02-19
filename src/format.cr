@@ -28,6 +28,7 @@ module Subtitles
 
     # detect this filetype
     abstract_class_method :detect
+
     #
     # def initialize(content : IO); end
     #
