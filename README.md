@@ -4,6 +4,8 @@ Convert between various subtitle file-formats. Based on
 [papnkukn/subsrt](https://github.com/papnkukn/subsrt). Currently converts
 between ASS, SSA, SRT, and JSON formats, more formats planned.
 
+**[API documentation](https://dscottboggs.github.io/subtitles.cr/)**
+
 ## Installation
 
 ### As a library
