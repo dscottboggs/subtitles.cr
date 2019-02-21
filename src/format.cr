@@ -46,14 +46,14 @@ module Subtitles
     # end
 
     # :nodoc:
-    #
-    # If the content attribute is a File, we need to close it.
     def finalize
+      # If the content attribute is a File, we need to close it.
       if content.responds_to? :close
         content.close
       end
     end
 
+    # return the appropriate filetype for the given extension string.
     def self.from_extension(extension string : String) : self.class | Nil
       raise "invalid extension #{string.inspect}" if string.includes?("/") || string.includes? "."
       case string
@@ -63,8 +63,6 @@ module Subtitles
       when "json" then JSON
       end
     end
-
-    # TODO #resync
   end
 end
 

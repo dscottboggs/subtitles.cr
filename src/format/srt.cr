@@ -16,7 +16,8 @@ module Subtitles
 
     getter content : IO
 
-    # These initalize methods have to be pulled in manually from the parent class
+    # These initalize methods are shared with the other cousin classes and must
+    # be manually maintained to be similar :/
 
     # initialize with the content
     def initialize(@content : IO); end

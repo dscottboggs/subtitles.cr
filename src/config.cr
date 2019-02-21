@@ -1,9 +1,11 @@
 require "logger"
 
+# :nodoc:
 USAGE = 64
 
 module Subtitles
   module Config
+    # Aliases for various command-line arguments that may be specified.
     module Arguments
       LogFileOptions  = {"--log-file", "--logfile"}
       LogLevelOptions = {"--log-level", "--loglevel"}
@@ -27,8 +29,10 @@ module Subtitles
     Optionally one can specify the `--to` option, to specify an output format.
     The --to option takes the place of the file extension for a file which
     doesn't have one.
+
     HELP
 
+    # Run the CLI on the specified args
     def self.command_line_interface(args = ARGV)
       infile, outfile, to_arg = nil, nil, nil
       while arg = args.shift?

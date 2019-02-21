@@ -30,7 +30,8 @@ module Subtitles
     # The column headers for the default style
     abstract_class_method style_format_columns
 
-    # These initalize methods have to be pulled in manually from the parent class
+    # These initalize methods are shared with the other cousin classes and must
+    # be manually maintained to be similar :/
 
     # initialize with the content
     def initialize(@content : IO); end
@@ -72,8 +73,8 @@ module Subtitles
     private def self.format(time : Time::Span)
       String.build do |s|
         s << time.hours << ':' <<
-           time.minutes << ':' <<
-           time.seconds << '.'
+          time.minutes << ':' <<
+          time.seconds << '.'
         s << time.nanoseconds.to_s[0..1]
       end
     end
@@ -222,6 +223,7 @@ module Subtitles
       end
     end
 
+    # :ditto:
     def self.detect(content : IO)
       if (line = content.gets limit: 32) && Regexes::ScriptInfo.match line
         # We have a Substation file (or at least a chunk of memory that looks like one)
