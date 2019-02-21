@@ -36,11 +36,6 @@
   <div class="types-list">
     <ul>
   
-  <li class=" " data-id="github.com/dscottboggs/subtitles.cr/toplevel" data-name="top level namespace">
-      <a href="toplevel.html">Top Level Namespace</a>
-      
-    </li>
-  
   <li class=" " data-id="github.com/dscottboggs/subtitles.cr/MillisecondsSpanConverter" data-name="millisecondsspanconverter">
       <a href="MillisecondsSpanConverter.html">MillisecondsSpanConverter</a>
       
@@ -209,7 +204,11 @@
 <a href="https://github.com/papnkukn/subsrt" target="_blank">papnkukn/subsrt</a>. Currently converts
 between ASS, SSA, SRT, and JSON formats, more formats planned.</p>
 
+<p><strong><a href="https://dscottboggs.github.io/subtitles.cr/" target="_blank">API documentation</a></strong></p>
+
 <h2>Installation</h2>
+
+<h3>As a library</h3>
 
 <ol><li>Add the dependency to your <code>shard.yml</code>:</li></ol>
 
@@ -220,7 +219,17 @@ between ASS, SSA, SRT, and JSON formats, more formats planned.</p>
 
 <ol><li>Run <code>shards install</code></li></ol>
 
+<h3>As a command line interface</h3>
+
+<p>Download a release binary for your OS from the <a href="https://github.com/dscottboggs/subtitles.cr/releases" target="_blank">releases</a> section</p>
+
+<h5><em>OR</em></h5>
+
+<ol><li>Install <a href="https://crystal-lang.org/reference/installation/index.html" target="_blank">Crystal</a></li><li>Clone this repository</li><li>From a shell within the repository, run <code>shards install && crystal build --release -o/usr/local/bin/subtitles src/subtitles.cr</code></li></ol>
+
 <h2>Usage</h2>
+
+<h3>As a library</h3>
 
 <pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;subtitles&quot;</span>
 
@@ -244,7 +253,33 @@ ass <span class="o">=</span> <span class="t">Subtitles</span><span class="t">::<
   <span class="k">end</span>
 <span class="k">end</span></code></pre>
 
-<h2>Development</h2>
+<h3>As a command-line utility</h3>
+
+<h5>With actual filenames specified:</h5>
+
+<pre><code class="language-shell">subtitles /path/to/original.subtitles /path/to/output.format</code></pre>
+
+<p>The extension of the output file is important, as that's how the
+application determines the filetype to output. The input file's type,
+however, is detected based on its content, so it can be named anything.</p>
+
+<h5>Piping and redirecting:</h5>
+
+<p>If you wish, you can pipe the outut of this program into another,
+or print it directly to your terminal. For example, the following
+command will print the first 25 lines of a <code>.srt</code> subtitle file,
+in JSON format:</p>
+
+<pre><code class="language-shell">subtitles /path/to/original.srt --to json - | head -n25</code></pre>
+
+<p>the only thing to note of importance here is that in lieu of looking for a
+an output format in the output format filename, you must specify the <code>--to</code>
+argument before the output file, and that <code>-</code> is used to represent <code>stdin</code>
+<code>stdout</code> depending on the position</p>
+
+<h2>Contributing</h2>
+
+<ol><li>Fork it (&lt;https://github.com/dscottboggs/subtitles.cr/fork>)</li><li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li><li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li><li>Push to the branch (<code>git push origin my-new-feature</code>)</li><li>Create a new Pull Request</li></ol>
 
 <p>Specs have already been written to verify various formats, so if someone else
 gets the chance to implement the remaining formats before I do, follow these
@@ -261,9 +296,10 @@ failures or errors.</p>
 
 <pre><code class="language-crystal"><span class="t">READY</span>   <span class="o">=</span> {<span class="n">:SRT</span>, <span class="n">:JSON</span>, <span class="n">:ASS</span>, <span class="n">:SSA</span>, <span class="n">:VTT</span>}</code></pre>
 
-<h2>Contributing</h2>
-
-<ol><li>Fork it (&lt;https://github.com/dscottboggs/subtitles.cr/fork>)</li><li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li><li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li><li>Push to the branch (<code>git push origin my-new-feature</code>)</li><li>Create a new Pull Request</li></ol>
+<p>Please note that build specs are only a regression test -- they take a snapshot
+of the build process and verify that it remains the same. If you add or change a
+snapshot, please also include a subtitle file for a public-domain movie or video
+with a PR.</p>
 
 <h2>Contributors</h2>
 
