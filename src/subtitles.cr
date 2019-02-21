@@ -82,5 +82,3 @@ module Subtitles
     synced
   end
 end
-
-Subtitles::Config.command_line_interface
